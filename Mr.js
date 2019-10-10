@@ -2,7 +2,7 @@ function Mr(x, y) {
   this.x = x;
   this.y = y;
   this.r = 20;
-  
+  this.active = true
   
   this.show = function() {
     fill(255)
