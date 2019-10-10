@@ -1,8 +1,3 @@
-//Br is back row
-//Mr is middle row
-//Sr is second row
-//Fr is first row
-
 var ball;
 var brs = [];
 var mrs = [];
@@ -26,15 +21,17 @@ function setup() {
   frs[i] = new Fr(i*50+190, 180);
   }
 }
-
+ 
 function draw() {
   background(50, 0, 10);
    ball.show();
-
+  ball.update();
+  
   
   for (var i = 0; i < brs.length; i++) {
   brs[i].show();
   }
+  
   for (var i = 0; i < mrs.length; i++) {
   mrs[i].show();
   }
@@ -44,18 +41,36 @@ function draw() {
   }
   
   for (var i = 0; i < frs.length; i++) {
-  frs[i].show();
+  if (frs[i].active) {
+     frs[i].show();
+     }
+    if (ball.hits(frs[i])) {
+     frs[i].die();
+   }
+    
   }
+  
+  fill(255)
+  textSize(20)
+  text("Score: " + score, 20, 380 )
+
 }
+
+
+
 function keyPressed() {
   if (key === ' ') {
-   ball.push(ball); 
+   ball.move(0, -1); 
   }
   
   if (keyCode === RIGHT_ARROW) {
-   ball.move(1); 
+ ball.move(1, 0); 
   } else if (keyCode === LEFT_ARROW) {
-    ball.move(-1);
+    ball.move(-1, 0);
   }
-
+  
+  function keyReleased() {
+   ball.stop(); 
+    
+  }
 }
