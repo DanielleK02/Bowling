@@ -8,5 +8,8 @@ function Sr(x, y) {
     fill(255)
   ellipse(this.x, this.y, this.r*2, this.r*2)
 }
+   this.die = function() {
+   this.active = false 
+  }
    
 }
