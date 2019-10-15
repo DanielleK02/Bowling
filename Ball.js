@@ -5,7 +5,7 @@ function Ball() {
   this.xy = 2;
   this.SPEED = 1.5;
   this.active = true
-  this.r = 60
+  this.r = 20
   
   this.show = function() {
     fill(5);
@@ -22,6 +22,37 @@ this.hits = function(fr) {
     }
     
 }
+  
+  this.hits = function(sr) {
+    var d = dist(this.x, this.y, sr.x, sr.y);
+    if (d < this.r + sr.r) {
+      return true;      
+    } else {
+      return false;
+    }
+    
+}
+  
+  this.hits = function(br) {
+    var d = dist(this.x, this.y, br.x, br.y);
+    if (d < this.r + br.r) {
+      return true;      
+    } else {
+      return false;
+    }
+    
+}
+  
+  this.hits = function(mr) {
+    var d = dist(this.x, this.y, mr.x, mr.y);
+    if (d < this.r + mr.r) {
+      return true;      
+    } else {
+      return false;
+    }
+    
+}
+
   
   this.move = function(dx, dy) {
 
