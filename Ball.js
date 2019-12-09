@@ -1,74 +1,52 @@
 function Ball() {
   this.x = width / 2;
-  this.y = height-60;
+  this.y = height - 60;
   this.vx = 0;
-  this.xy = 2;
+  this.vy = 0;
   this.SPEED = 1.5;
-  this.active = true
-  this.r = 20
-  
+  this.active = true;
+  this.r = 40
+
   this.show = function() {
     fill(5);
     ellipseMode(CENTER);
-    ellipse(this.x, this.y, 60,60);
+    ellipse(this.x, this.y, 70, 70);
   }
-  
-this.hits = function(fr) {
+
+  this.hits = function(fr) {
     var d = dist(this.x, this.y, fr.x, fr.y);
     if (d < this.r + fr.r) {
-      return true;      
+      return true;
     } else {
       return false;
     }
-    
-}
-  
-  this.hits = function(sr) {
-    var d = dist(this.x, this.y, sr.x, sr.y);
-    if (d < this.r + sr.r) {
-      return true;      
-    } else {
-      return false;
-    }
-    
-}
-  
-  this.hits = function(br) {
-    var d = dist(this.x, this.y, br.x, br.y);
-    if (d < this.r + br.r) {
-      return true;      
-    } else {
-      return false;
-    }
-    
-}
-  
-  this.hits = function(mr) {
-    var d = dist(this.x, this.y, mr.x, mr.y);
-    if (d < this.r + mr.r) {
-      return true;      
-    } else {
-      return false;
-    }
-    
-}
 
-  
+  }
+
+
+
   this.move = function(dx, dy) {
 
     this.vx = dx * this.SPEED
     this.vy = dy * this.SPEED
   }
-  
+
   this.update = function() {
 
     this.x += this.vx
     this.y += this.vy
+    if (this.y < 10) {
+      //pg.reset();
+      this.x = width / 2
+      this.y = height - 60
+      this.vy = 0
+    }
   }
-   stop(); {
-     this.vx = 0
-     this.vy = 0
-   }
   
- 
+  this.stop = function() {
+    this.vx = 0
+    this.vy = 0
+  }
+
+
 }
