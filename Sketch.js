@@ -28,6 +28,9 @@ function draw() {
   background(50, 0, 10);
   ball.show();
   ball.update();
+
+    
+ 
    
   for (var i = 0; i < brs.length; i++) {
     if (brs[i].active) {
@@ -36,8 +39,9 @@ function draw() {
         if (ball.hits(brs[i])) {
           brs[i].die();
             score++
-  }
-   }
+        }
+          
+   } 
   }
   
   for (var j = 0; j < mrs.length; j++) {
@@ -70,14 +74,27 @@ function draw() {
       frs[l].die();
          score++
     }
-   }
+   
   }
+  }
+ if (score == 10) {
+     fill(200, 200, 50)
+     textSize(40)
+     text("Strike!!!", 130, 200)
+     } 
+   if (score == 9) {
+     fill(200, 200, 50)
+     textSize(40)
+     text("Spare", 130, 200)
+     }
+ 
+
+  
   
   fill(255)
   textSize(20)
   text("Score: " + score, 20, 380 )
 }
-
 
 
 function keyPressed() {
