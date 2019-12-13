@@ -77,14 +77,14 @@ function draw() {
    
   }
   }
-  if (ball.throws == -1) {
+  if (ball.throws <= -1) {
    if (score <= 10) {
      fill(200, 200, 50)
      textSize(40)
      text("Spare", 130, 200)
      }
   }
-    if (ball.throws <= 1) {
+    if (ball.throws >= 1) {
         if (score == 10) {
      fill(200, 200, 50)
      textSize(40)
